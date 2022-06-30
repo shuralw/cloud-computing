@@ -1,0 +1,192 @@
+%scrartcl: Für kürzere Ausarbeitungen. Beginnt mit section, es gibt keine chapter
+%scrreprt: Für längere Ausarbeitungen (Bacherlo oder Master Thesis). Beginnt chapter
+\documentclass[pdftex,a4paper,abstracton,11pt,parskip=half,bibtotocnumbered]{scrartcl} 
+
+% Je nach LaTeX Compiler werden etwas andere Bibliotheken verwendet.
+% Das Paket iftex erlaubt es, den Compiler zu überprüfen
+\usepackage{iftex}
+
+\usepackage[ngerman]{babel} % Einstellungen für den deutschen Sprachraum, neue deutsche Rechtschreibung
+\ifPDFTeX
+  \usepackage[utf8]{inputenc} % Umlaute erkennen. Als Option in "[] " die vom Editor verwendete Zeichencodierung auswählen
+  \usepackage[T1]{fontenc}
+\fi
+
+% Für kompakter Aufzählungen
+\usepackage{paralist}
+
+\usepackage[style=ieee,backend=bibtex]{biblatex}
+\addbibresource{literatur/literatur.bib}
+
+% Für Abbildungen
+\usepackage{graphicx}
+\graphicspath{{./abbildungen/}}
+
+% Ändert die Überschrift des Abstracts.
+% Falls kein Abstract benötigt wird, kann die Option "abstracton" ganz oben in \documentclass entfallen.
+\renewcommand{\abstractname}{Zusammenfassung}
+
+
+
+\title{Bereitstellung einer Fullstack Anwendung auf der Google Cloud Plattform}
+\author{Lukas Wessel}
+\date{\today}
+
+
+
+\begin{document}
+
+\makeatletter
+\begin{titlepage}
+	\centering
+	{\scshape\LARGE Fachhochschule Südwestfalen \par}
+	\vspace{1cm}
+%	{\scshape\Large Merkblatt\par}
+	\vspace{1.5cm}
+	{\huge\bfseries \@title\par}
+	\vspace{3cm}
+	{\Large \@author\par}
+	\vspace{1cm}
+	{\Large \@date\par}
+	\vfill
+
+	\raggedright
+%	{\large Eingereicht bei:\par}
+%	{\large Betreuer 1}
+\end{titlepage}
+\makeatother
+
+\thispagestyle{empty}
+\begin{abstract}
+%Ein Abstrakt, also eine Kurzzusammenfassung der Arbeit ist bei einer schriftlichen Ausarbeitung nicht unbedingt notwendig.
+%Bei umfangreicheren Arbeiten, also z.~B. einer Bachelor- oder Master-Thesis, sollte die Ausarbeitung in jedem Fall mit einem \textit{Abstract} beginnen.
+Schriftliche Ausarbeitungen sind  wissenschaftliche Texte, die in ihrem formalen Aufbau bestimmten Richtlinien entsprechen müssen.
+Dies gilt im Besonderen für Abschlussarbeiten (Bachelor- oder Masterarbeiten), aber prinzipiell auch für kürzere Aufsätze, Hausarbeiten und Projektberichte.
+In diesem Leitfaden soll es darum gehen, wie Sie Ihre Ausarbeitung strukturell aufbauen sollten und welche Qualitätskriterien für die äußere und sprachliche Form gelten.
+Bei einer typischen Projekt-, Bachelor- oder Masterarbeit macht die schriftliche Ausarbeitung nur einen Teil der Arbeitslast aus, ist aber gleichzeitig das wichtigste Kriterium für die Bewertung.
+Daher ist es ratsam, sich möglichst frühzeitig mit den inhaltlichen und formalen Anforderungen wissenschaftlicher Texte vertraut zu machen und diese bei der Anfertigung eigener Ausarbeitungen zu berücksichtigen.
+\end{abstract}
+
+\vfill
+\tableofcontents
+\pagebreak
+
+\setcounter{page}{1}
+
+\Glossar
+
+\section{Einleitung}
+
+
+\section{Stand der Technik}
+	
+	\subsection{Verfügbare Technologien}
+		\subsubsection{Cloud SQL}
+		\subsubsection{Cloud Run}
+		\subsubsection{Compute Engine}
+		\subsubsection{Virtuelle Maschinen}
+		\subsubsection{Docker}
+		\subsubsection{Cloud Build}
+		\subsubsection{GitHub Actions}
+		\subsubsection{Continuous Integration}
+		\subsubsection{Continuous Deployment}
+
+\section{Methodik}
+	Sollte ich hier lieber eine Aufzählung machen oder eigene Kapitel vorsehen? Wie ausführlich sollte das sein, ich will mich nicht wiederholen. 
+	Bei der Umsetzung der praktischen Ausarbeitung wird einer strukturierten Vorgehensweise gefolgt, um das Ergebnis möglichst zeiteffizient zu 
+	erreichen. Diese erfolgt in sechs(todo: checken obs 6 sind) Schritten.
+	Als Grundlage für diverse Bereitstellungen wird Docker herangezogen. Docker verfügt über die Möglichkeit, Software-Instanzen in einer relativ kleinen 
+	(bezüglich Arbeits- und physischem Speicher) Umgebung (Sandbox?) zu betreiben. Alternative Technologien hierfür sind (todo), aufgrund der 
+	Bekanntheit/Nutzerbasis und der	umfangreichen Unterstützungsmöglichkeiten (Dokumentation) wird Docker an dieser Stelle als Containerisierungstechnologie
+	für die vorliegende Arbeit festgelegt.  
+
+	\subsection{Bereitstellung des Repositories auf Github}
+	Vor der eigentlichen Umsetzung wurde ein Softwareprojekt umgesetzt. Der Tech-Stack umfasst eine MSSQL Datenbank, ein ASP.NET Core Backend sowie	ein
+	Angular Frontend. Um es perspektivisch der Google Cloud zugänglich zu machen wurde der Code als privates GitHub Mono-Repository im Internet veröffentlicht.
+	Das Projekt wird als gegeben / als Ausgangslage betrachtet und soll aus diesem Grund für die vorliegende Arbeit nicht näher betrachtet werden.  
+
+	\subsection{Erzeugen und lokales Ausführen der Docker Images}
+	Es soll verifiziert werden, dass die Docker-Images der Datenbank, des Backends und des Frontend grundsätzlich lauffähig sind. Aus diesem Grund wird 
+	vorab ein Docker-Image mittels des "Docker Build" (todo: konkreter Befehl?) lokal 
+	
+	\subsection{Relevante Artikel der Dokumentation lesen}
+
+	\subsection{Deployment der Datenbank}
+		Die vorhandene MSSQL Datenbank soll auf der Google Cloud Plattform bereitgestellt werden. Eine Verifizierung der Funktionalität erfolgt durch 
+		eine testweise Verbindung mittels eines Tools wie SQL Server Management Studio. 
+	
+	\subsection{Deployment des Backends}
+		Das ASP.NET 5 Backend wird in diesem Schritt verfügbar gemacht. Um zu überprüfen, ob dieses abgerufen werden kann, soll die bestehende API 
+		Dokumentation via Swagger getestet werden. 
+	
+	\subsection{Deployment des Frontends}
+		Im finalen Schritt soll das Angular Frontend bereitgestellt werden. Um die erfolgreiche Umsetzung zu verifizieren soll mit einem Browser auf
+		die von Google deklarierte IP-Adresse bzw. URL navigiert werden.
+
+
+\begin{enumerate}
+	\item Bereitstellung des  
+	\item Age
+
+\section{Umsetzung}
+	Um abschätzen zu können, welche Technologien für ein Deployment in der Google Cloud in Frage kommen wurden die Dokumentation von Google herangezogen.
+	Es wurde erkannt, dass derzeit die "Cloud Run" API eine für den Zweck passende Alternative darstellt. Begründen lässt sich dies darin, dass es einerseits 
+	eine aktuelle Cloud-Technologie ist und andererseits von Google und mehreren Autoren in aktuellen Lektüren für diesen Anwendungszweck vorgesehen wird.(todo ZITATE)
+	Darüber hinaus existiert ein begrenztes Gratis Kontingent an Ressourcen für diesen Service. So sind beispielsweise die ersten 180.000 vCPU Sekunden 
+	im Monat kostenfrei. (https://cloud.google.com/run/pricing)
+	Weiterhin (Fachwort möglich lol) bietet sich die Compute Engine an, da hierdurch virtuelle Maschinen und folglich Docker-Installationen ermöglicht werden.
+
+
+
+	Grundsätzlich kamen zunächst  
+	\subsection{Bereitstellung der Anwendungen}
+		- Ausgangslage: Es liegt eine ASP.NET 5 
+
+	
+
+	\subsection{Backend}
+	Grundsätzlich: Betrieb von Frontend + Backend im Docker Container, Datenbank entweder 
+	Cloud Run
+	/subsubsection{CORS Anpassungen}
+	/subsubsection{Anpassungen der Konfigurationsdateien}
+	
+	\subsection{Datenbank}
+		Die bisherige Umsetzung erfolgte auf einer MSSQL Datenbank. Diese liegt als Docker Image im Docker Hub vor.
+		MySQL oder MariaDB, weil es hierzu Docker Images gibt. Als Alternativen können sich hier auch NoSQL Datenbanken anbieten. Für das Caching
+		gleichen Anfragen und Sessions kann sich eine Redis DB anbieten, da bei jeder Anfrage, die eine gültige Session erfordert, eine Datenbankabfrage
+		vonnöten ist. Für das Speichern der Buchungsdaten lohnt sich vermutlich eine dokumentenbasierte Datenbank. Der Vorteil von dokumentenbasierten 
+		Datenbanken wäre eine zu erwartende Umgehung von DB-Locks bei den Schreibintensiven Operationen durch die Import Funktionalität. Im vorliegenden
+		Fall wurde aufgrund der Einheitlichkeit eine relationale Datenbank gewählt. 
+		
+		\subsubsection{Versuch in einem Docker Container}
+		Erkenntnis: Das ist grundsätzlich nicht vorgesehen, es gibt eine native Lösung: Das Cloud SQL. Es wurde zunächst versucht mit einer kostenlosen
+		VM bereituzustellen. Hierbei konnte nach umfangreichen Anstrengungen und Recherchen kein Ergebnis erzielt werden. Es sei an dieser Stelle jedoch
+		kritisch zu vermerken, dass die Expertise des Autors im Netzwerkbereich nicht umfangreich genug waren, um eine korrekte Lösung zu implementieren.
+		Bei ausreichenden Kenntnissen besteht die Möglichkeit, dass hier dennoch eine korrekte Umsetzung erfolgen kann. Google sieht vor, dass man die
+		Cloud-native SQL Lösung "Cloud SQL" verwendet.(todo: belegen, wenn das nicht geht dann sollte das irgendwie umformuliert werden oder raus.)
+		Die Verbindung eines Cloud Run Service mit einer Cloud SQL Datenbank liegt umfangreich von Google dokumentiert vor. 
+
+		\subsubsection{Netzwerkprobleme}
+		\subsubsection{CloudSQL}
+		\subsubsection{Alternative Möglichkeiten}
+	\subsection{Frontend} (ggf. zusammen mit Backend?)
+
+	(\subsection{Aufgetretene Probleme}) vermutlich eher beiläufig
+
+\section{Evaluation und Ergebnisse}
+	Stärken und Schwächen herausstellen
+	Verbesserungsfähige Aspekte benennen 
+		- App.Config auslagern in Environment Variables
+	Lösungsansätze aufzeigen
+
+\section{Zusammenfassung}
+
+\section{Ausblick}
+
+%\appendix
+%\include{kapitel/anhang}
+
+% Bibliographie
+\printbibliography
+
+\end{document}

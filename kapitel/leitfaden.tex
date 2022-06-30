@@ -1,0 +1,330 @@
+%Bei einem Report (documentclass "scrreprt") oder einem Buch ("scrbook")  ist das 
+
+\section{Allgemeines}
+
+Im Laufe Ihres Studiums werden Sie verschiedene schriftliche Ausarbeitungen anfertigen.
+Die Abschlussarbeit ist dabei sicher die Ausarbeitung mit dem größten Umfang, aber auch kleinere Arbeiten, wie etwa Projektberichte und Hausarbeiten, sind Ausarbeitungen, für die ähnliche Maßgaben gelten.
+In diesem Dokument möchte ich Ihnen ein paar Hinweise und Tipps auf den Weg geben, die Sie beim Schreiben von Ausarbeitungen beachten sollten.
+
+In den technischen Disziplinen, zu denen die Ingenieurwissenschaften und auch die Informatik zählen, liegen den Ausarbeitungen häufig technische Implementierungen zugrunde.
+In der Informatik ist dies normalerweise Software, die im Rahmen der Arbeit entsteht.
+Oft ist gerade dieser praktische Teil besonders interessant und man vertieft sich darin,  das Verfassen der Ausarbeitung hingegen wird gelegentlich unterschätzt.
+Dabei sollte man sich immer darüber im Klaren sein, dass die Ausarbeitung am Ende des Projekts die wichtigste Grundlage für die Bewertung darstellt.
+
+Jede Ausarbeitung stellt für sich eine wissenschaftliche Arbeit dar und unterliegt den dafür üblichen Regeln.
+Bei einer wissenschaftlichen Arbeit muss der Weg zum Erkenntnisfortschritt nachvollziehbar sein und daher reicht die reine Beschreibung der (im Zuge der Arbeit entstandenen) Implementierung nicht aus. 
+Es müssen auch die verwendeten Konzepte, Daten und Werkzeuge eingeführt und erläutert werden.
+Die Zielsetzung muss klar formuliert und die gewählten Methoden argumentativ begründet werden.
+Dabei muss immer klar sein, welche Leistung im Rahmen Ihrer Arbeit entstanden ist und was Sie von welcher Quelle übernommen haben.
+Die erzielten Ergebnisse sollten immer kritisch bewertet werden. 
+Hierbei gilt es, die Stärken der eignen Arbeit herauszustellen, aber auch verbesserungsfähige Aspekte zu benennen und gegebenenfalls Lösungsansätze aufzuzeigen.
+
+Neben den wissenschaftlichen Ansprüchen sind auch die Gliederung sowie die sprachliche Qualität wichtige Entscheidungskriterien für die Bewertung.
+Kann man einer Ausarbeitung, aufgrund eines schlechten Aufbaus, vieler orthographischer oder grammatikalischer Fehler und Ausdrucksschwächen nicht folgen, so kann auch die  technisch-wissenschaftliche Leistung \textit{hinter} der Ausarbeitung nicht klar werden.
+Damit Ihre technische Leistung auch angemessen bewertet werden kann, sollten Sie daher entsprechend Wert auf den Inhalt und die Form Ihrer schriftlichen Ausarbeitung legen.
+
+\section{Aufbau der Arbeit}
+
+In diesem Abschnitt werden Fragen besprochen, die sich mit der Struktur und dem logischen Aufbau der Ausarbeitung befassen.
+
+\subsection{Der \textit{rote Faden}}
+
+Wissenschaftliche Texte dienen der Darstellung, Vermittlung und kritischen Diskussion eines Sachproblems.
+Um den Text möglichst interessant zu gestalten, sollten Sie sich stets vor Auge führen, \textbf{an wen} sich der Text wendet, und \textbf{welche Fragen} sich der Leser zum aktuellen Zeitpunkt stellt.
+Wenn Sie es schaffen, die Fragen des Lesers \textit{vorherzusehen}, können Sie an entsprechender Stelle die notwendigen Informationen oder Argumente liefern.
+So erfüllen Sie die Erwartungshaltung des Lesers und ermutigen ihn, interessiert weiterzulesen.
+
+Beginnen wir mit der ersten Leitfrage: An wen richtet sich Ihre Ausarbeitung?
+Hierzu sollte vor allem klargestellt werden, das die Zielgruppe der Arbeit nicht (nur) die Betreuer sind!
+Inhaltliche Aspekte, die Sie möglicherweise mit Ihren Betreuern mündlich oder schriftlich besprochen haben, dürfen Sie deswegen keinesfalls weglassen.
+Der Text muss für sich allein verständlich sein und daher sollte alles, was inhaltlich wichtig ist, auch in der Ausarbeitung genannt werden.
+
+Allgemein kann man sagen, dass die Ausarbeitung so geschrieben sein sollte, dass fachlich qualifizierte Personen der Arbeit folgen können.
+Nun ist die Frage, wer ist \textit{fachlich qualifiziert} bzw. welches fachliche Wissen können Sie vom Leser voraussetzen.
+Eine gute Faustregel ist hierbei, anzunehmen, dass der Leser den gleichen Kenntnisstand besitzt, den Sie \textbf{vor Beginn} der Bearbeitung des Themas hatten.
+Dies gilt natürlich nicht für relevantes \textit{Spezialwissen}, das Sie vielleicht schon vor der Bearbeitung besaßen.
+Den Kenntnisstand Ihrer Leser richtig einzuschätzen, ist sehr wichtig für die Qualität der Arbeit!
+Wählen Sie ein zu hohes Niveau, wird Ihr Text unverständlich und Sie hängen den Leser ab, ist das Niveau zu niedrig, laufen Sie Gefahr den Leser zu langweilen.
+
+Die zweite Leitfrage ist: Welche Fragen stellt sich der Leser gerade?
+Die Antwort darauf hängt natürlich stark von Ihrem Thema ab und davon an welcher Stelle sich der Leser im Text befindet.
+Es gibt einige sehr generelle Fragestellungen, die man ganz zu Beginn der Arbeit beantworten sollte, um überhaupt das Interesse des Lesers zu wecken:
+\begin{enumerate}
+\item Worum geht es in der Arbeit? Was ist die Motivation, dieses Thema zu behandeln?
+\item Was waren die Ziele der Arbeit? Was wurde erreicht? Was sind die Hauptleistungen der Arbeit?
+\item Wie wurde das Ergebnis erreicht? Welche Methoden wurden eingesetzt?
+\item Kann ich (der Leser) das Ergebnis für meine Zwecke verwenden?
+\end{enumerate}
+
+Aus diesen Fragen sollten Sie bei jeder Ausarbeitung auf den ersten ein bis zwei Seiten eingehen.
+Bei längeren Texten werden diese Fragen im Abstract, also der Kurzzusammenfassung, die vor dem eigentlichen Text steht, behandelt und im Verlauf des ersten Kapitels nochmals aufgegriffen.
+Bei kurzen Ausarbeitungen kann der Abstract entfallen, die oben genannten Punkte werden dann in der Einleitung behandelt.
+
+\paragraph{Die Motivation der Arbeit}
+
+Zu Beginn der Ausarbeitung ist es besonders wichtig, dem Leser zu erklären, warum Sie das Thema bearbeiten.
+Dabei ist nicht unbedingt Ihre eigene Motivation gemeint, sondern vielmehr die Frage, warum die Problemstellung Ihrer Arbeit relevant ist.
+Angemessene Motivationsgründe sind etwa:
+\begin{compactitem}
+\item Sie lösen ein Problem, für das es bisher keine, oder keine gute Lösung gibt.
+\item Ein Unternehmen kann Ihre Lösung einsetzen, um damit Profit zu erwirtschaften.
+\item Sie vergleichen verschiedene Produkte oder Methoden, um damit die Entscheidungsfindung bei der Auswahl zu erleichtern.
+\item Sie stellen ein komplexes Thema für eine bestimmte Zielgruppe angemessen dar.
+\end{compactitem}
+
+
+\subsection{Die Gliederung}
+\label{sec:gliederung}
+
+Eine Ausarbeitung gliedert sich immer in Einleitung, Hauptteil, Schlussteil sowie eventuelle Anhänge.
+Die Einleitung führt in das Thema ein, beschreibt die Motivation und nennt die konkreten Ziele der Arbeit.
+Sofern es eine mit dem Betreuer abgesprochene Aufgabenstellung gibt, sollte man diese hier möglichst genau wiedergeben.
+Dabei ist es übrigens nicht tragisch, wenn ein vorab gesetztes Ziel im Rahmen der Arbeit nicht erreicht wurde.
+Solange Sie triftige (d.~h. üblicherweise technische) Gründe nennen können, warum das Ziel nicht erreicht wurde, ist auch das ein Ergebnis.
+Bei einer wissenschaftlichen Arbeit sollte in der Einleitung auch der \textit{wissenschaftliche Beitrag} (engl. \textit{scientific contribution}) klar formuliert werden.
+Gerade bei publizierten Arbeiten ist darüber genau auszumachen, welche neue Erkenntnis durch die vorliegende Arbeit entstanden ist.
+Den Abschluss der Einleitung bildet meistens ein Überblick über die folgenden Kapitel der Ausarbeitung. 
+Gerade bei längeren Arbeiten ist diese Übersicht für den Leser wichtig.
+
+Der Hauptteil bildet den Kern der Arbeit und ist vom Umfang her der mit Abstand umfangreichste Teil der Ausarbeitung.
+Üblicherweise besteht er  aus mehreren Kapiteln oder Abschnitten, die häufig einem festen Aufbau folgen:
+\begin{enumerate}
+\item Theoretischer Teil: In diesem Teil werden die Grundlagen des Themas eingeführt und erklärt. Das entsprechende Kapitel heißt folglich meist \textit{Grundlagen} oder \textit{Stand der Technik}. 
+Wenn Sie für Ihren technischen Teil bestimmte Methoden oder Werkzeuge einsetzen, sollten Sie diese hier einzeln beschreiben.
+Dabei gilt es, die jeweiligen Grundlagen gerade so genau zu beschreiben, wie es für das Verständnis der Arbeit notwendig ist.
+Damit der Leser die Gelegenheit hat, Genaueres zu den Grundlagen zu erfahren, sollten Sie hier gute Referenzen angeben (vgl. Abschnitt~\ref{sec:zitieren}).
+Sind für die Arbeit sehr verschiedene Grundlagen erforderlich, kann der theoretische Teil auch in mehrere Kapitel aufgeteilt werden. 
+\item Praktischer Teil: Im praktischen Teil wird Ihre \textit{Lösung} der Problemstellung beschrieben. Häufig ist dieser Teil weiter untergliedert, z.~B. in einen Abschnitt zu Ihrer Methodik und weitere zur konkreten Ausführung bzw. Implementierung.
+
+Der Teil zur Methodik hilft dem Leser, Ihre Vorgehensweise besser zu überblicken und die einzelnen Teile im Zusammenhang zu sehen.
+Bei der folgenden Beschreibung Ihrer konkreten Umsetzung sollten Sie sorgfältig abwägen, wie detailliert Sie Ihre Lösung präsentieren.
+Seitenweise Quelltext abzudrucken ist beispielsweise in aller Regel nicht sehr hilfreich.
+Wählen Sie besser die zentralen Elemente Ihrer technischen Umsetzung aus und beschreiben Sie nur diese im Detail.
+Sehr hilfreich für das Verständnis sind im praktischen Teil auch repräsentative Beispiele anhand derer Sie bestimmte Abläufe oder Funktionen erklären.
+
+Den Abschluss des technischen Teils bilden üblicherweise ein oder mehrere Abschnitte mit den Ergebnissen.
+Diese Informationen sind für den Leser zentral, um bewerten zu können, \textit{wie gut} Ihre Ziele erreicht wurden.
+Leider fällt dieser Teil in vielen Ausarbeitungen deutlich zu knapp aus, z.~B. weil Studierende mit dem Fertigstellen der Implementierung den gesamten Praxisteil als abgeschlossen betrachten.
+Besser ist es, wenn Sie nach Testfällen oder Eingabedaten suchen, mit denen Sie Ihre Lösung qualitativ bewerten können.
+Die Resultate dieser Analysen liefern wichtige Inhalte für Ihr Ergebnis-Kapitel.
+
+Der Schlussteil fasst Ihr Vorgehen und die Ergebnisse noch einmal zusammen.
+Dabei nehmen Sie Bezug auf die Einleitung und die vorab gesetzten Ziele.
+Am Ende des Schlussteils können Sie Ihre gesamte Arbeit nochmal rückblickend diskutieren, eventuelle Verbesserungsvorschläge aufzeigen und einen Ausblick auf mögliche, zukünftige Entwicklungen geben.
+\end{enumerate}
+
+Im Anhang können Sie ihrer Arbeit weitere Informationen hinzufügen, die nicht mehr zum eigentlichen Rahmen der Ausarbeitung passen.
+Wenn Sie im Zuge ihrer Arbeit Dokumente entwickelt haben, die für den Leser interessant sind, können Sie diese in den Anhang aufnehmen.
+Typische Beispiele sind Installationsanleitungen oder der Quellcode wichtiger Programmteile.
+Bitte beachten Sie, dass der Anhang für eine mögliche Seitenvorgabe der Ausarbeitung nicht mitzählt.
+
+\section{Form der Arbeit}
+
+Natürlich steht der Inhalt der Arbeit an erster Stelle, aber ohne eine entsprechende Präsentation kann der Leser diese Inhalte nicht erschließen.
+Daher sollte Ihre Ausarbeitung auch bestimmten formalen und ästhetischen Anforderungen genügen.
+
+Weitestgehend festgelegt ist der strukturelle Aufbau einer Ausarbeitung.
+Das \textbf{Titelblatt} enthält folgende Angaben:
+\begin{compactitem}
+\item Institution (z.B. \textit{Fachhochschule Südwestfalen})
+\item Art der Arbeit (z.B. \textit{Bachelorarbeit}, \textit{Masterarbeit} oder \textit{Ausarbeitung})
+\item Titel der Arbeit
+\item Namen aller Autoren (bei Abschlussarbeiten können auch weitere Angaben erforderlich sein, z.B. Matrikelnummer, Geburtsdatum, Anschrift, \dots)
+\item Datum (konkreter oder offizieller Abgabetermin)
+\item Namen der Betreuer bzw. Referenten
+\end{compactitem}
+
+Bei Bachelor- und Masterarbeiten folgt auf das Deckblatt ein Abstract, optional zusätzlich in englischer Übersetzung.
+Bei Hausarbeiten ist ein Abstract nicht unbedingt erforderlich.
+
+Das nächste Hauptelement der Ausarbeitung ist das \textbf{Inhaltsverzeichnis}.
+Hier sollten Sie darauf achten, dass Unterkapitel nur bis zu einer gewissen Ebene aufgenommen werden.
+In aller Regel sollte die Gliederungszahl maximal drei- bis vierstellig (bei langen Dokumenten) sein.
+Wenn Sie eine Danksagung in Ihre Arbeit aufnehmen wollen, sollten Sie diese zwischen dem Abstract und dem Inhaltsverzeichnis einfügen.
+
+Es folgen die inhaltlichen Kapitel wie in Abschnitt~\ref{sec:gliederung} beschrieben.
+Nach dem Schlussteil folgt als weiteres zentrales Element jeder wissenschaftlichen Ausarbeitung das \textbf{Literaturverzeichnis} (vgl. Abschnitt~\ref{sec:zitieren}).
+Es folgen optionale weitere Verzeichnisse, ein Index und die Anhänge.
+Für jede studentische Arbeit, die eine Prüfungsleistung darstellt, ist eine \textbf{Selbstständigkeitserklärung} notwendig, die üblicherweise ganz am Ende des Dokuments steht.
+
+Die folgende Aufzählung zeigt die Struktur einer Ausarbeitung nochmal im Überblick.
+Die Aufteilung in 6 Kapitel und die Überschriften sind dabei exemplarisch und können gegebenenfalls abweichen:
+\begin{compactitem}
+\item Deckblatt
+\item Abstract
+\item Inhaltsverzeichnis
+\item[1] Einleitung
+\item[2] Stand der Technik
+\item[3] Methodik
+\item[4] Umsetzung
+\item[5] Evaluation und Ergebnisse
+\item[6] Zusammenfassung und Ausblick
+\item Literaturverzeichnis
+\item weitere Verzeichnisse, z.B. Tabellenverzeichnis, Abbildungsverzeichnis, Abkürzungsverzeichnis (optional)
+\item Index (optional)
+\item Anhänge (optional)
+\item Selbstständigkeitserklärung
+\end{compactitem}
+
+
+\subsection{Umfang}
+
+Zum Umfang zählen nur die Seiten von Einleitung, Hauptteil und Schluss, das Titelblatt, die Verzeichnisse und der Anhang zählen nicht zum Umfang.
+Laut der Fachprüfungsordnungen der Informatik-Studiengänge an der Fachhochschule Südwestfalen gelten folgende Richtwerte für schriftliche Ausarbeitungen:
+\begin{compactitem}
+\item Hausarbeiten und schriftliche Ausarbeitungen: 10-15 Seiten
+\item Bachelorarbeiten: etwa 30 Seiten
+\item Masterarbeiten: etwa 80 Seiten 
+\end{compactitem}
+
+Eine Seite hat dabei jeweils etwa 50 Zeilen.
+Sollte Ihre Arbeit also viele große Abbildungen enthalten oder, wegen Seitenumbrüchen einige nur knapp gefüllte Seiten, erhöht sich die erwartete Seitenzahl entsprechend.
+Allgemein sollten Sie eher versuchen, die Seiten ihrer Arbeit möglichst gut zu füllen, auch wenn die Seitenzahl dann eher geringer ausfällt.
+Die reine Anzahl der Seiten ist selbstverständlich kein Qualitätskriterium.
+Die Angabe soll Ihnen aber dabei helfen, den erwarteten Umfang besser einschätzen zu können.
+
+\subsection{Die Wahl des \textit{richtigen} Textsatzprogramms}
+
+Viele Studierende stehen spätestens vor ihrer ersten längeren schriftlichen Ausarbeitung vor der Frage, mit welchem Programm sie die Arbeit am besten schreiben sollen.
+Naheliegend ist hier ein Textverarbeitungsprogramm wie \textit{Microsoft Word} oder \textit{OpenOffice Writer} zu verwenden, eine Alternative dazu sind  Textsatzsysteme wie etwa LaTeX.
+In jedem Fall sollten Sie Formatvorlagen einsetzen, um einen gleichmäßigen Textsatz (Seitenränder, Schriftarten, Textgröße, Aufzählungen, \dots) zu gewährleisten.
+
+Persönlich kann ich Ihnen nur dazu raten, Ihre Ausarbeitungen (und ggf. weitere Dokumente)  mit LaTeX zu verfassen.
+Im Vergleich zu WYSIWYG-Editoren wie \textit{Word} oder \textit{Writer} erfordert LaTeX zwar einen etwas höheren Lernaufwand.
+Das Druckbild, die Organisation von Querverweisen, Fußnoten und Zitaten sowie das Setzen von mathematischen Formeln spricht allerdings eindeutig für das Textsatzsystem.
+Spezielle Editoren, wie z.B. \texttt{TeXstudio} erleichtern den Einstieg und die Arbeit mit LaTeX (siehe Abbildung~\ref{fig:editor}).
+ 
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{texstudio.png}
+\caption{\LaTeX\ Editor \texttt{TeXstudio}}
+\label{fig:editor}
+\end{figure}
+
+Eine interessante Alternative zu \textit{Word} und LaTeX sind Dokumente im \textit{Markdown}-Format.
+Ähnlich wie bei LaTeX, werden in Markdown Dokumenten Annotationen hinzugefügt, um bestimmte Textelemente zu formatieren.
+Für Überschriften werden z.~B. je nach Tiefe eine entsprechende Anzahl von \texttt{\#}-Zeichen vorangestellt, Aufzählungen werden durch Spiegelstriche (\texttt{-})  markiert, u.s.w.
+Allgemein ist der so entstehende Text noch sehr gut lesbar.
+Entsprechende Werkzeuge können Markdown in HTML-Format umwandeln und entsprechend formatiert anzeigen.
+Außerdem existieren Konvertierungswerkzeuge (z.~B. Pandoc\footnote{\url{https://pandoc.org/} (abgerufen am 13.05.2020)}), die Markdown Dokumente in viele weitere Formate (PDF, LaTeX, doc, \dots) übersetzen können.
+
+\subsection{Formatierung}
+
+Für ein einheitliches Schriftbild sollten Sie das Layout Ihres Dokuments fest einstellen und einheitlich anwenden.
+Schriftarten im Fließtext werden nur geändert, wenn dies der Hervorhebung dient.
+Die Abstände sollten so gewählt werden, dass einzelne Textelemente gut voneinander unterscheidbar sind aber gleichzeitig nicht \glqq{}auseinandergerissen\grqq{} wirken.
+Folgende Übersicht fasst die wichtigsten Formatierungseinstellungen zusammen:
+\begin{compactitem}
+\item Als Schriftgröße für den normalen Fließtext sollte 11 pt oder 12 pt gewählt werden.
+\item Für den Fließtext muss eine Serifen-Schrift ausgewählt werden, z.B. \textit{Cambria} oder \textit{Times New Roman}. \textsf{Verwenden Sie keine serifenlosen Schriftarten (z.~B. \textit{Arial, Verdana, Calibri} ) für den Fließtext!} Für Überschriften sind serifenlose Schriften OK.
+\item Eine sinnvolle Wahl für die Seitenränder ist: links 3 cm, rechts 2 cm, oben und unten je 2,5 cm. Das Papierformat ist DIN A4.
+\item Wählen Sie einen einfachen Zeilenabstand.
+\item Wenn Sie Blocksatz verwenden, sollte unbedingt Silbentrennung eingestellt werden. Ansonsten weist das Schriftbild zu große Lücken auf und wirkt unschön.
+\item Eine Seitennummerierung ist erforderlich.
+\end{compactitem}
+
+\subsection{Graphische Elemente}
+
+
+Schaubilder und Diagramme schaffen Anschaulichkeit und sind häufig hilfreich um komplizierte Sachverhalte übersichtlich darzustellen.
+Allerdings sollten Sie Ihre Abbildungen sorgfältig auswählen.
+Die Faustregel hier ist, dass eine Abbildung immer zusätzliche Informationen liefern muss.
+Ein Firmenlogo beispielsweise, ist eher ein Designelement, mit dem Sie einen Text auflockern können.
+Bei wissenschaftlichen Texten sind solche Stilmittel aber unpassend und Sie sollten eher darauf verzichten.
+Außerdem müssen Sie bei der Benutzung von nicht selbst erstellten Bildern das Copyright beachten.
+Vielfach ist es nicht ohne weiteres gestattet, fremde Abbildungen in eigenen Werken zu übernehmen.
+Wenn Sie Abbildungen verwenden, müssen diese zwingend mit einer Bildunterschrift versehen, und im Text referenziert werden.
+
+
+\subsection{Literaturverzeichnis und korrektes Zitieren}
+\label{sec:zitieren}
+
+\begin{quote}
+\textit{If you steal from one person it's plagiarism; if you steal from several it's called research.}
+\vspace*{-4eX}$\ $
+\begin{flushright}
+    \small{--Wilson Mizner (1876–1933)}
+\end{flushright}
+\end{quote}
+
+Das oben genannte Zitat beschreibt recht einleuchtend, dass in der Wissenschaft neue Erkenntnisse immer der Grundlage des bestehenden Wissens aufgebaut werden.
+Beim Schreiben von wissenschaftlichen Texten muss daher immer erkennbar sein, welche Teile vom Autor geschaffen, und welche aus bestehenden Quellen entnommen wurden.
+Das Übernehmen von Bestehendem ist dabei kein Manko, sondern unbedingt angebracht.
+\textit{Sie müssen das Rad nicht neu erfinden!}
+Für alle übernommenen Inhalte ist die Angabe der korrekten Quelle allerdings unablässig.
+Sobald eine Quelle nicht oder unvollständig angegeben ist, muss man von einem Plagiat sprechen.
+Eine solche Arbeit ist strenggenommen wertlos.
+Sie sollten also beim Anfertigen Ihrer Arbeit strikt darauf achten, alle verwendeten Hilfsmittel anzugeben.
+Andernfalls müssen Sie mit deutlichen Punktabzügen, in schweren Plagiatsfällen auch mit dem Nichtbestehen der Prüfung rechnen.
+
+\paragraph{Quellen auswählen}
+
+Bei der Auswahl von Hilfsmitteln sollte man beachten, dass verschiedene Quellen mehr oder weniger \textit{zitierfähig} sind.
+Besonders zitierfähig sind Publikationen, die einem wissenschaftlichen Begutachtungsverfahren unterlegen sind.
+Dies sind z.~B. Aufsätze, die Fachzeitschriften oder in Sammelbänden von Fachkonferenzen erschienen sind, oder auch Fachbücher von seriösen Verlagen.
+Im Gegensatz dazu sind Internet-Quellen nicht in jedem Fall zitierfähig.
+Daher müssen Sie genau darauf achten, dass die Quellen vertrauenswürdig sind und einem gewissen Anspruch genügen.
+Näheres dazu, wie Sie entsprechende Literatur finden und auswählen, können Sie in Ratgebern zum wissenschaftlichen Arbeiten nachlesen (z.~B. in~\cite{Kremer2018} oder ~\cite{Kollmann2016}).
+
+\paragraph{Zitieren}
+
+Es gibt verschiedene Standards, nach denen Quellen im Text genannt und im Literaturverzeichnis aufgezählt werden.
+Eine verbreitete Zitierweise ist der \textbf{Harvard-Stil}, bei dem als Kurznachweis im Text die Autoren, das Erscheinungsjahr des Werks und möglichst die Seitenangabe genannt wird  (vgl. Bergener \textit{et al.} 2019, S. 59).\nocite{Bergener2019}
+Bei mehr als zwei Autoren verwendet man nur den Erstautor mit der Ergänzung \textit{et al.}
+Unter dem Begriff \textbf{Deutsche Zitierweise} versteht man das Zitieren über Fußnoten.\footnote{\textit{Theisen, Manuel René}, Wissenschaftliches Arbeiten -- Erfolgreich bei Bachelor- und Masterarbeit, 16. Aufl., Franz Vahlen, 2013}\nocite{Theisen2013}
+Bei einem sogenannten \textit{Vollbeleg} wird das gesamte Werk inklusive aller Autoren, Erscheinungsjahr und Werk angegeben.
+
+Die beiden genannten Zitierweisen sind in den Wirtschaftswissenschaften bzw. den Geistes- und Sozialwissenschaften sehr verbreitet.
+In den Ingenieurwissenschaften und der Informatik ist der \textbf{IEEE-Stil}~\cite{ieeestyle} vorherrschend.
+Als Kurznachweis im Text wird dabei lediglich eine Zahl angegeben, die auf die eigentliche Quellenangabe im Literaturverzeichnis verweist.
+Die beiden wichtigsten Fachgesellschaften der Informatik, IEEE und ACM, verwenden in ihren Publikationen diesen Zitierstil.
+
+Für das Literaturverzeichnis gelten ebenfalls je nach Zitierstil verschiedene Richtlinien.
+Dabei legt die Art der Publikation (z.~B. Fachbuch, Fachaufsatz in einem Journal oder in einem Tagungsband einer Konferenz, Handbuch oder technischer Bericht) fest, welche Angaben erforderlich sind.
+Am einfachsten ist es, Sie verwenden ein Werkzeug wie BibTeX, mit dem Literaturverzeichnisse für verschiedene Stilvorlagen automatisch erzeugt werden können.\footnote{\url{www.bibtex.org} (abgerufen am 14.05.2020)} 
+
+Welchen Zitierstil Sie für Ihre Ausarbeitung verwenden wollen, können Sie selbst entscheiden.
+Wichtig ist es aber, dass Sie den Stil durchgängig anwenden.
+Keine, fehlerhafte oder unseriöse Literaturangaben führen in aller Regel zu Punktabzügen, die sich (je nach Umfang) auch in der Endnote widerspiegeln.
+
+\subsection{Ausdruck und Sprache}
+
+Ausdruck und Sprache sollten einer wissenschaftlichen Ausarbeitung angemessen sein.
+Vermeiden Sie Umgangssprache und verzichten Sie auf Füllwörter und eine zu ausschweifende Ausdrucksweise.
+Ideal ist es, wenn Sie einen argumentativen Stil verwenden.
+Benennen Sie möglichst klar, welche Entscheidungen Sie treffen (These) und wie Sie zu dieser Entscheidung kommen (Argument).
+Mit passenden Beispielen oder Belegen können Sie ihre Argumentation stützen.
+Wenn Sie beispielsweise im Rahmen Ihrer Arbeit ein Programm entwickeln, müssen Sie an vielen Stellen Designentscheidungen treffen.
+Erläutern Sie diese Entscheidungen in der Ausarbeitung, indem Sie z.~B. angeben, warum sie eine bestimmte Alternative implementieren, oder warum Sie bestimmte Funktionalitäten weglassen.
+
+Wissenschaftliche Texter sollen objektiv und allgemeingültig ein.
+Daher ist die Verwendung der \textbf{Ich-Form} in den allermeisten Fällen unangemessen.
+Versuchen Sie möglichst, Sachverhalte mit passiven oder unpersönlichen Formulierungen darzustellen.
+Eine Ausnahme von dieser Regel sind Stellen im Text, an denen Sie Ihre persönliche Meinung zum Ausdruck bringen oder eigene Begriffe einführen:
+\begin{compactitem}
+\item \textit{\glqq{}Ich bin der Überzeugung, dass meine Methode hilfreich sein wird, um\dots\grqq{}}
+\item \textit{\glqq{}Ich bezeichne dieses Verfahren im Folgenden als\dots\grqq{}}
+\end{compactitem}
+Dabei ist auch in diesen Fällen die Verwendung der 1. Person nur eine optionales Stilmittel.
+In der Regel kann man die komplette Arbeit ohne die Ich-Form auskommen.
+
+
+\textbf{Abkürzungen} werden bei der ersten Verwendung im Text immer ausgeschrieben und damit eingeführt.
+Einzige Ausnahme sind allgemein bekannte Abkürzungen, die Sie nicht einführen müssen.
+Bei längeren Texten mit vielen Abkürzungen 	ist ein zusätzliches Abkürzungsverzeichnis hilfreich.
+
+
+%Gibt es beispielsweise für ein Programmierproblem mehrere alternative Bibliotheken, geben Sie an, warum Sie eine bestimmte auswählen.
+
+
+\subsection{Rechtschreibung und Grammatik}
+
+Es wird erwartet, dass eine schriftliche Ausarbeitung grammatikalisch und orthografisch korrekt ist.
+Vereinzelte Fehler sind sicher nicht dramatisch.
+Schwerwiegende und sich häufende Rechtschreib- oder Grammatikfehler führen aber üblicherweise zu Punktabzug.
+Vor allem für Abschlussarbeiten gilt daher, dass Sie, und möglichst auch andere Personen,  Ihren Text Korrektur lesen sollten.
+
+
+%Ein Buch wird zitiert~\cite{Theisen2013, Kremer2018, Bergener2019}
+
+

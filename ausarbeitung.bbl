@@ -1,0 +1,137 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global}
+  \entry{Kremer2018}{book}{}
+    \name{author}{1}{}{%
+      {{hash=KBP}{%
+         family={Kremer},
+         familyi={K\bibinitperiod},
+         given={Bruno\bibnamedelima P.},
+         giveni={B\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Spektrum}%
+    }
+    \strng{namehash}{KBP1}
+    \strng{fullhash}{KBP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{edition}{5}
+    \field{title}{Vom Referat bis zur Abschlussarbeit}
+    \field{year}{2018}
+  \endentry
+
+  \entry{Kollmann2016}{book}{}
+    \name{author}{3}{}{%
+      {{hash=KT}{%
+         family={Kollmann},
+         familyi={K\bibinitperiod},
+         given={Tobias},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=KA}{%
+         family={Kuckertz},
+         familyi={K\bibinitperiod},
+         given={Andreas},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SC}{%
+         family={Stöckmann},
+         familyi={S\bibinitperiod},
+         given={Christoph},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Gabler}%
+    }
+    \strng{namehash}{KTKASC1}
+    \strng{fullhash}{KTKASC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Das 1x1 des Wissenschaftlichen Arbeitens}
+    \field{year}{2016}
+  \endentry
+
+  \entry{Bergener2019}{book}{}
+    \name{author}{3}{}{%
+      {{hash=BK}{%
+         family={Bergener},
+         familyi={B\bibinitperiod},
+         given={Katrin},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=CN}{%
+         family={Clever},
+         familyi={C\bibinitperiod},
+         given={Nico},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Stein},
+         familyi={S\bibinitperiod},
+         given={Armin},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Gabler}%
+    }
+    \strng{namehash}{BKCNSA1}
+    \strng{fullhash}{BKCNSA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Wissenschaftliches Arbeiten im
+  Wirtschaftsinformatik"=Studium}
+    \field{year}{2019}
+  \endentry
+
+  \entry{Theisen2013}{book}{}
+    \name{author}{1}{}{%
+      {{hash=TMR}{%
+         family={Theisen},
+         familyi={T\bibinitperiod},
+         given={Manuel\bibnamedelima René},
+         giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Franz Vahlen}%
+    }
+    \strng{namehash}{TMR1}
+    \strng{fullhash}{TMR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{edition}{16}
+    \field{title}{Wissenschaftliches Arbeiten -- Erfolgreich bei Bachelor- und
+  Masterarbeit}
+    \field{year}{2013}
+  \endentry
+
+  \entry{ieeestyle}{manual}{}
+    \list{publisher}{1}{%
+      {IEEE Publishing Operations}%
+    }
+    \field{labeltitlesource}{title}
+    \field{title}{IEEE Editorial Style Manual for Authors}
+    \field{year}{2020}
+  \endentry
+\enddatalist
+\endinput
