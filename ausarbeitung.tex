@@ -80,13 +80,20 @@ Daher ist es ratsam, sich möglichst frühzeitig mit den inhaltlichen und formal
 
 \section{Stand der Technik}
 	
-	\subsection{Verfügbare Technologien}
+	\subsection{Verfügbare Technologien} 
+	(todo: Soll ich die Kapitelüberschrift streichen? Ist das doppelt mit Stand der Technik? Ich find das ist irgendwie doppelt.)
+
+	In diesem Kapitel werden die in Frage kommenden Technologien und Konzepte hinsichtlich des Betriebs, der Bereitstellung der Images und des
+	CI/CD Prozesses beleuchtet. 
+
 		\subsubsection{Cloud SQL}
 		\subsubsection{Cloud Run}
+		Ist eine Platform as a Service Technologie
 		\subsubsection{Compute Engine}
 		\subsubsection{Virtuelle Maschinen}
 		\subsubsection{Docker}
 		\subsubsection{Cloud Build}
+		\subsubsection{Cloud }
 		\subsubsection{GitHub Actions}
 		\subsubsection{Continuous Integration}
 		\subsubsection{Continuous Deployment}
@@ -107,48 +114,76 @@ Daher ist es ratsam, sich möglichst frühzeitig mit den inhaltlichen und formal
 
 	\subsection{Erzeugen und lokales Ausführen der Docker Images}
 	Es soll verifiziert werden, dass die Docker-Images der Datenbank, des Backends und des Frontend grundsätzlich lauffähig sind. Aus diesem Grund wird 
-	vorab ein Docker-Image mittels des "Docker Build" (todo: konkreter Befehl?) lokal 
-	
+	vorab ein Docker-Image mittels des "Docker Build" (todo: konkreter Befehl?) lokal erzeugt.
+
 	\subsection{Relevante Artikel der Dokumentation lesen}
+	Um zu erlernen, welche Google Services sich grundsätzlich für den Zweck eignen und wie diese miteinander verkettet werden können soll die Google
+	Cloud Dokumentation hinsichtlich der genannten Cloud Technologien nachvollzogen werden.
+
+	\subsection{Build der Anwendung und Publikation in einer Registry}
+	Der Code soll vom GitHub Repository auf der Google Cloud Plattform gebaut werden und anschließend in einer Image Registry für den weiteren Prozess
+	abgelegt werden. Hierfür sind potenziell die Google Cloud Docker Image Registry oder der Docker Hub geeignet, sie erlauben das "Pushing" und "Pulling"
+	von Docker Images. 
 
 	\subsection{Deployment der Datenbank}
-		Die vorhandene MSSQL Datenbank soll auf der Google Cloud Plattform bereitgestellt werden. Eine Verifizierung der Funktionalität erfolgt durch 
-		eine testweise Verbindung mittels eines Tools wie SQL Server Management Studio. 
-	
+	Die vorhandene MSSQL Datenbank soll auf der Google Cloud Plattform bereitgestellt werden. Eine Verifizierung der Funktionalität erfolgt durch 
+	eine testweise Verbindung mittels eines Tools wie SQL Server Management Studio. 
+
 	\subsection{Deployment des Backends}
-		Das ASP.NET 5 Backend wird in diesem Schritt verfügbar gemacht. Um zu überprüfen, ob dieses abgerufen werden kann, soll die bestehende API 
-		Dokumentation via Swagger getestet werden. 
+	Das ASP.NET 5 Backend wird in diesem Schritt verfügbar gemacht. Um zu überprüfen, ob dieses abgerufen werden kann, soll die bestehende API 
+	Dokumentation via Swagger getestet werden. 
 	
 	\subsection{Deployment des Frontends}
-		Im finalen Schritt soll das Angular Frontend bereitgestellt werden. Um die erfolgreiche Umsetzung zu verifizieren soll mit einem Browser auf
-		die von Google deklarierte IP-Adresse bzw. URL navigiert werden.
+	Im finalen Schritt soll das Angular Frontend bereitgestellt werden. Um die erfolgreiche Umsetzung zu verifizieren soll mit einem Browser auf
+	die von Google deklarierte IP-Adresse bzw. URL navigiert werden.
 
 
 \begin{enumerate}
 	\item Bereitstellung des  
 	\item Age
+\end{enumerate}
 
 \section{Umsetzung}
-	Um abschätzen zu können, welche Technologien für ein Deployment in der Google Cloud in Frage kommen wurden die Dokumentation von Google herangezogen.
+	Um abschätzen zu können, welche Technologien für ein Deployment in der Google Cloud in Frage kommen wurde die Dokumentation von Google herangezogen.
 	Es wurde erkannt, dass derzeit die "Cloud Run" API eine für den Zweck passende Alternative darstellt. Begründen lässt sich dies darin, dass es einerseits 
 	eine aktuelle Cloud-Technologie ist und andererseits von Google und mehreren Autoren in aktuellen Lektüren für diesen Anwendungszweck vorgesehen wird.(todo ZITATE)
 	Darüber hinaus existiert ein begrenztes Gratis Kontingent an Ressourcen für diesen Service. So sind beispielsweise die ersten 180.000 vCPU Sekunden 
 	im Monat kostenfrei. (https://cloud.google.com/run/pricing)
-	Weiterhin (Fachwort möglich lol) bietet sich die Compute Engine an, da hierdurch virtuelle Maschinen und folglich Docker-Installationen ermöglicht werden.
+	Weiterhin (Fachwort möglich lol) eignet sich grundsätzlich auch die Compute Engine für den Betrieb der Applikationen, da hierdurch virtuelle Maschinen
+	und folglich Docker-Installationen ermöglicht werden.
 
+	\subsection{Cloud Build}
+	Der Google Cloud Build wurde verwendet, um den Code von GitHub in Docker Images zu transformieren und diese anschließend in einer Container Registry 
+	abzulegen. Da Docker verwendet werden soll, wird während des Erstellprozesses "Docker" als Format selektiert und als Quelle wurde "GitHub 
+	(Cloud Build-GitHub-Anwendung)" verwendet, um den Build Prozess mit dem GitHub Repository zu verbinden. Im Anschluss muss eine Authentifizierung für dieses
+	Repository durchgeführt werden. Hierbei fordert die erforderlichen Berechtigungen an, sodass keine weitere Maßnahmen auf GitHub erforderlich sind. 
+	Es werden diverse Events wie "Push to Branch" oder "Pull Request" zum initiieren des Builds angeboten. Die Entscheidung hierfür sollte auf den
+	jeweiligen Team- beziehungsweise Unternehmensrichtlinien basieren, da dies eine kollektiv entschiedene Konvention sein sollte.
+	Abschließend muss noch eine Konfiguration angegeben, in der Ausarbeitung wurde hierfür ein Dockerfile verwendet.\\
+	Sofern man große Projekte oder Software mit umfangreichen Abhängigkeiten bauen möchte kann es vorkommen, dass Zeitüberschreitungen auftreten.  
+	Im weiteren Verlauf der Arbeit wird ersichtlich, dass man für ein Continuous Deployment einen speziellen Build Prozess erzeugen muss. (todo: Validieren)
 
+	
+	(todo: Verschieben in anderes Kapitel) Es ist vonnöten, dass man eine YAML Datei schreibt und diese dem Build Prozess zur Verfügung anfügt. Optimalerweise wird diese auch dem Repository 
+	hinzugefügt, da sie genau wie reguläre Code Dateien auch einen Veränderungsprozess durchlaufen. (todo: Quelle)
+
+	\subsection{Docker Registry}
+	Es wurde während des Lesens der Dokumentation erkannt, dass es eine aktuellere Technologie gibt, die Google für Docker Registries vorsieht.
+	Obgleich der Name "Google Container Registry" suggeriert, dass dieser Dienst für das Ablegen von Images verwendet werden sollte, empfiehlt die Google
+	Dokumentation die Verwendung der aktuelleren "Artifact Registry". Martinez formuliert diesbezüglich: "[The Google Cloud Platform Artifact 
+	Registry] will [..] replace our current	[Google Cloud Registry] in the future [...]" \cite{artifactRegistryReplacesGCP} 
+	(todo: Sollte ich die Artifact Registry auch noch in den Werkzeugen ausformulieren? Ja oder?)
 
 	Grundsätzlich kamen zunächst  
 	\subsection{Bereitstellung der Anwendungen}
 		- Ausgangslage: Es liegt eine ASP.NET 5 
-
 	
 
 	\subsection{Backend}
 	Grundsätzlich: Betrieb von Frontend + Backend im Docker Container, Datenbank entweder 
 	Cloud Run
-	/subsubsection{CORS Anpassungen}
-	/subsubsection{Anpassungen der Konfigurationsdateien}
+	\subsubsection{CORS Anpassungen}
+	\subsubsection{Anpassungen der Konfigurationsdateien}
 	
 	\subsection{Datenbank}
 		Die bisherige Umsetzung erfolgte auf einer MSSQL Datenbank. Diese liegt als Docker Image im Docker Hub vor.
@@ -179,6 +214,7 @@ Daher ist es ratsam, sich möglichst frühzeitig mit den inhaltlichen und formal
 		- App.Config auslagern in Environment Variables
 	Lösungsansätze aufzeigen
 
+	Es wurden keine Sicherheitsaspekte betrachtet. In Unternehmenslösungen sollten beispielsweise Rechte- und Rollenkonzepte erarbeitet und angewandt werden.
 \section{Zusammenfassung}
 
 \section{Ausblick}
