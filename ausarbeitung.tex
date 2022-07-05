@@ -185,7 +185,15 @@ Daher ist es ratsam, sich möglichst frühzeitig mit den inhaltlichen und formal
 	\subsubsection{CORS Anpassungen}
 	\subsubsection{Anpassungen der Konfigurationsdateien}
 	
-	\subsection{Datenbank}
+	\subsection{Datenbank mittels Compute Engine}
+		Die Bereitstellung der Datenbank erfolgte zunächst auf einer Compute Engine Instanz. Die erstellte virtuelle Maschine wurde mit einer Debian und einer Docker Installation versehen. Anschließend wurde das offizielle Microsoft SQL Server Docker Image vom Docker Hub instanziiert. Dies lies sich mit dem Befehl "" realisieren. Damit man sich anschließend mit der Datenbank durch ein Client Tool wie SQL Server Management Studio verbinden konnte musste noch der Port 3306 freigegeben werden. Sodann war es möglich, sich mit den festgelegten Benutzerdaten und der externen IP Adresse sowie dem Port gegen die Datenbank zu verbinden. Die Notation der Adresse erfolgt hierbei grundsätzlich im Format "ip,port". Sowohl das Schema als auch die Daten ließen sich nun via Insert Skript einspielen. //
+		
+		
+		Je nach Technologie Stack kommen auch andere Datenbanken in Frage. Sofern es ein geeignetes Docker Image hierfür gibt, kann diese Datenbank ebenfalls hiermit betrieben werden. (todo: Zeitform?)
+		Den grundsätzlichen Betrieb einer Datenbank in einem Container gilt es jedoch zu hinterfragen. Laut Heddings ist Docker nicht für "stateful services" wie Datenbanken vorgesehen. Sämtliche Daten sind laut ihm flüchtig und werden vernichtet, sobald der Container gelöscht wird. Dieses Problem lässt sich jedoch gemäß Heddings in gewissem Maße umgehen, indem Docker Volumes für die Persistierung der Daten verwendet werden./cite(heddings-database-docker) 
+		
+		
+		
 		Die bisherige Umsetzung erfolgte auf einer MSSQL Datenbank. Diese liegt als Docker Image im Docker Hub vor.
 		MySQL oder MariaDB, weil es hierzu Docker Images gibt. Als Alternativen können sich hier auch NoSQL Datenbanken anbieten. Für das Caching
 		gleichen Anfragen und Sessions kann sich eine Redis DB anbieten, da bei jeder Anfrage, die eine gültige Session erfordert, eine Datenbankabfrage
@@ -194,6 +202,7 @@ Daher ist es ratsam, sich möglichst frühzeitig mit den inhaltlichen und formal
 		Fall wurde aufgrund der Einheitlichkeit eine relationale Datenbank gewählt. 
 		
 		\subsubsection{Versuch in einem Docker Container}
+		
 		Erkenntnis: Das ist grundsätzlich nicht vorgesehen, es gibt eine native Lösung: Das Cloud SQL. Es wurde zunächst versucht mit einer kostenlosen
 		VM bereituzustellen. Hierbei konnte nach umfangreichen Anstrengungen und Recherchen kein Ergebnis erzielt werden. Es sei an dieser Stelle jedoch
 		kritisch zu vermerken, dass die Expertise des Autors im Netzwerkbereich nicht umfangreich genug waren, um eine korrekte Lösung zu implementieren.
@@ -203,6 +212,7 @@ Daher ist es ratsam, sich möglichst frühzeitig mit den inhaltlichen und formal
 
 		\subsubsection{Netzwerkprobleme}
 		\subsubsection{CloudSQL}
+		
 		\subsubsection{Alternative Möglichkeiten}
 	\subsection{Frontend} (ggf. zusammen mit Backend?)
 
