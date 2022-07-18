@@ -1,58 +1,40 @@
-\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \babel@toc {ngerman}{}\relax 
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1}Einleitung}{1}{}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2}Stand der Technik}{1}{}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1}Verfügbare Technologien}{1}{}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.1.1}Cloud SQL}{1}{}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.1.2}Cloud Run}{1}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.3}Compute Engine}{1}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.4}Virtuelle Maschinen}{1}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.5}Docker}{1}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.6}Cloud Build}{1}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.7}GitHub Actions}{1}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.8}Continuous Integration}{1}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.1.9}Continuous Deployment}{1}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Methodik}{1}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Umsetzung}{1}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1}Bereitstellung der Anwendungen}{1}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}Backend}{2}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3}Datenbank}{2}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.3.1}Versuch in einem Docker Container}{2}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.3.2}Netzwerkprobleme}{2}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.3.3}CloudSQL}{2}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {4.3.4}Alternative Möglichkeiten}{2}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4}Frontend}{2}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.5}Aufgetretene Probleme}{2}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Evaluation und Ergebnisse}{2}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6}Zusammenfassung}{3}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7}Ausblick}{3}{}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8}Literatur}{3}{}%
-\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.1.3}Compute Engine}{2}{}%
+\contentsline {subsubsection}{\numberline {2.1.4}Virtuelle Maschinen}{2}{}%
+\contentsline {subsubsection}{\numberline {2.1.5}Docker}{2}{}%
+\contentsline {subsubsection}{\numberline {2.1.6}Cloud Build}{2}{}%
+\contentsline {subsubsection}{\numberline {2.1.7}Cloud}{2}{}%
+\contentsline {subsubsection}{\numberline {2.1.8}GitHub Actions}{2}{}%
+\contentsline {subsubsection}{\numberline {2.1.9}Continuous Integration}{2}{}%
+\contentsline {subsubsection}{\numberline {2.1.10}Continuous Deployment}{2}{}%
+\contentsline {section}{\numberline {3}Methodik}{2}{}%
+\contentsline {subsection}{\numberline {3.1}Bereitstellung des Repositories auf Github}{2}{}%
+\contentsline {subsection}{\numberline {3.2}Erzeugen und lokales Ausführen der Docker Images}{3}{}%
+\contentsline {subsection}{\numberline {3.3}Relevante Artikel der Dokumentation lesen}{3}{}%
+\contentsline {subsection}{\numberline {3.4}Build der Anwendung und Publikation in einer Registry}{3}{}%
+\contentsline {subsection}{\numberline {3.5}Deployment der Datenbank}{3}{}%
+\contentsline {subsection}{\numberline {3.6}Deployment des Backends}{3}{}%
+\contentsline {subsection}{\numberline {3.7}Deployment des Frontends}{3}{}%
+\contentsline {section}{\numberline {4}Umsetzung}{4}{}%
+\contentsline {subsection}{\numberline {4.1}Cloud Build}{4}{}%
+\contentsline {subsection}{\numberline {4.2}Docker Registry}{4}{}%
+\contentsline {subsection}{\numberline {4.3}Bereitstellung der Anwendungen}{5}{}%
+\contentsline {subsection}{\numberline {4.4}Backend}{5}{}%
+\contentsline {subsubsection}{\numberline {4.4.1}CORS Anpassungen}{5}{}%
+\contentsline {subsubsection}{\numberline {4.4.2}Anpassungen der Konfigurationsdateien}{5}{}%
+\contentsline {subsection}{\numberline {4.5}Datenbank mittels Compute Engine}{5}{}%
+\contentsline {subsubsection}{\numberline {4.5.1}Netzwerkprobleme}{6}{}%
+\contentsline {subsubsection}{\numberline {4.5.2}CloudSQL}{6}{}%
+\contentsline {subsubsection}{\numberline {4.5.3}Alternative Möglichkeiten}{6}{}%
+\contentsline {subsection}{\numberline {4.6}Frontend}{6}{}%
+\contentsline {subsection}{\numberline {4.7}Aufgetretene Probleme}{6}{}%
+\contentsline {section}{\numberline {5}Evaluation und Ergebnisse}{7}{}%
+\contentsline {section}{\numberline {6}Zusammenfassung}{7}{}%
+\contentsline {section}{\numberline {7}Ausblick}{7}{}%
+\contentsline {section}{\numberline {8}Literatur}{7}{}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

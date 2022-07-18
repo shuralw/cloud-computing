@@ -60,7 +60,7 @@
 \begin{abstract}
 %Ein Abstrakt, also eine Kurzzusammenfassung der Arbeit ist bei einer schriftlichen Ausarbeitung nicht unbedingt notwendig.
 %Bei umfangreicheren Arbeiten, also z.~B. einer Bachelor- oder Master-Thesis, sollte die Ausarbeitung in jedem Fall mit einem \textit{Abstract} beginnen.
-Schriftliche Ausarbeitungen sind  wissenschaftliche Texte, die in ihrem formalen Aufbau bestimmten Richtlinien entsprechen müssen.
+Schriftliche Ausarbeitungen sind wissenschaftliche Texte, die in ihrem formalen Aufbau bestimmten Richtlinien entsprechen müssen.
 Dies gilt im Besonderen für Abschlussarbeiten (Bachelor- oder Masterarbeiten), aber prinzipiell auch für kürzere Aufsätze, Hausarbeiten und Projektberichte.
 In diesem Leitfaden soll es darum gehen, wie Sie Ihre Ausarbeitung strukturell aufbauen sollten und welche Qualitätskriterien für die äußere und sprachliche Form gelten.
 Bei einer typischen Projekt-, Bachelor- oder Masterarbeit macht die schriftliche Ausarbeitung nur einen Teil der Arbeitslast aus, ist aber gleichzeitig das wichtigste Kriterium für die Bewertung.
@@ -73,9 +73,15 @@ Daher ist es ratsam, sich möglichst frühzeitig mit den inhaltlichen und formal
 
 \setcounter{page}{1}
 
-\Glossar
+\section{Glossar}
+DevOps \\
+Mandantentrennung - Personenbezogene Daten dürfen keinem fremden Kunden zugänglich werden. Aus diesem Grund müssen die Daten der Kunden voneinander getrennt werden, 
+man spricht in diesem Fall von Mandantentrennung.\\
+Serverless
 
 \section{Einleitung}
+ - Welche Kombination an Cloud-Services bietet sich zurzeit für eine Fullstackanwendung an?
+ - Welche Alternativen Technologien können verwendet werden?
 
 
 \section{Stand der Technik}
@@ -86,12 +92,43 @@ Daher ist es ratsam, sich möglichst frühzeitig mit den inhaltlichen und formal
 	In diesem Kapitel werden die in Frage kommenden Technologien und Konzepte hinsichtlich des Betriebs, der Bereitstellung der Images und des
 	CI/CD Prozesses beleuchtet. 
 
-		\subsubsection{Cloud SQL}
+		\subsubsection{Cloud SQL}		
+			Cloud SQL ist ein Service zum Bereitstellen von Datenbanken, die von Google in dessen Cloud Plattform bereitgestellt wird. Als Anwender kann hier eine
+			PostGreSQL, MySQL oder eine MSSQL Datenbank instanziiert werden. Hierbei werden laut Ożarowska die Daten "stored and processed in the cloud, on the infrastructure of a cloud 
+			service provider". \cite{cloudsql}
+
 		\subsubsection{Cloud Run}
-		Ist eine Platform as a Service Technologie
-		\subsubsection{Compute Engine}
+			Venema definiert Cloud Run wie folgt: "Cloud Run is a platform on Google Cloud that lets you build scalable and reliable web-based applications. As
+ 			a developer, you can get very close to being able to just write your code and push it, and then let the platform deploy, run, and scale your application for you." \cite{Venema, S.1} \\
+			Hierbei können laut Venema sehr schnell 1000 Container erzeugt werden. \cite{vgl. Venema, S. XVI}
+			Die Applikationen lassen sich in Netzwerken vereinen oder voneinander trennen, mit Rechten und Rollen ausstatten (IAM) und mit verschiedensten 
+			Datenbankservices wie etwa Cloud SQL oder Firestore verbinden. Für Cloud Run sind Containertechnologien wie Docker vorgesehen, um deren Images 
+			mit einer "pre-built app" \cite{cloud-run-johnson} zu "pullen" und zu instanziieren. Die Technologie lässt sich effizienter nutzen, indem sie mit "Continuous 
+			Deployment" kombiniert wird (siehe Kapitel 3.1.10), da hierdurch der administrative Aufwand von zukünftigen Bereitstellungen reduziert wird \cite{whats-cd-lamm}.
+
 		\subsubsection{Virtuelle Maschinen}
+			Lackes und Siepermann definieren im "Gabler Wirtschaftslexikon" eine virtuelle Maschine wie folgt: "Bei Mehrbenutzerbetrieb, v.a. bei Teilnehmerbetrieb, wird durch
+			das Betriebssystem für jeden einzelnen Teilnehmer eine eigene Hardware-Umgebung simuliert, eine „virtuelle Maschine”. Diese enthält z.B. einen eigenen Arbeitsspeicher, 
+			Magnetplattenspeicher und Drucker, individuell für den Teilnehmer. Prinzipiell kann jede virtuelle Maschine mit einem anderen Betriebssystem betrieben
+			werden. Die interne Realisierung der virtuellen Maschine durch das Betriebssystem erfolgt natürlich auf den realen Geräten; z.B. wird der virtuelle Drucker
+			eines Teilnehmers auf einem realen Drucker der Datenverarbeitungsanlage abgebildet." \cite{gabler-vm} \\
+			Im Kontext einer Cloud spielen diese eine wichtige Rolle, da sie Mandantentrennung unter möglichst effizienter Nutzung der Hardwareressourcen
+			des Rechenzentrums gewährleisten können.
+		
+		\subsubsection{Compute Engine}
+			Virtuelle Maschinen werden mit der Compute Engine erzeugt. Hierbei entsteht ein großer administrativer Aufwand, da die Installation von Updates und 
+			Installationen wie Docker oder Datenbanktechnologien durch den Kunden vorgenommen werden. 
+			Auf der anderen Hand liegt eine hohe Kontrolle des Servers vor, da viele Einstellungen des Servers vom Kunden vorgenommen werden können. Er genießt somit
+			große Freiheit in der Wahl seiner Software und Einstellungen, ist jedoch auch verantwortlich für die Pflege hierfür.
+	
+
 		\subsubsection{Docker}
+			Die Softwareumgebung vom Entwickler sollte vom Administrator replizierbar sein, damit keine Probleme aufgrund der Umgebung in Test- oder Produktivumgebungen 
+			auftreten. Docker bietet hierfür eine Lösung, es ist die allgegenwärtige Technologie \cite{vgl Venema S.40} um Software in Containern zu verpacken (containerisieren), 
+			auf einer zentralen Plattform (Registry) hochzuladen (Push) und diese wiederum herunterzuladen (Pull). Es virtualisiert laut Clancy im Gegensatz zu virtuellen Maschinen
+			nicht die Hardware, sondern das Betriebssystem. \cite{vgl. docker-virtualization} Es erlaubt einen höheren Nutzungsgrad einer (virtuellen) Maschine, da mehrere 
+			kleine Container-Instanzen hierauf gleichzeitig betrieben werden können.
+
 		\subsubsection{Cloud Build}
 		\subsubsection{Cloud }
 		\subsubsection{GitHub Actions}
