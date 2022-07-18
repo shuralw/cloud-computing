@@ -223,30 +223,24 @@ Serverless
 	\subsubsection{Anpassungen der Konfigurationsdateien}
 	
 	\subsection{Datenbank mittels Compute Engine}
-		Die Bereitstellung der Datenbank erfolgte zunächst auf einer Compute Engine Instanz. Die erstellte virtuelle Maschine wurde mit einer Debian und einer Docker Installation versehen. Da im Softwareprojekt die Datenbank mit einer MSSQL Datenbank umgesetzt wurde, sollte auch der Betrieb mit einer MSSQL Datenbank stattfinden. Um dies zu realisieren wurde das offizielle Microsoft SQL Server Docker Image vom Docker Hub instanziiert. Dies lies sich mit dem Befehl "" bewerkstelligen. Damit man sich anschließend mit der Datenbank durch ein Client Tool wie SQL Server Management Studio verbinden konnte musste noch der Port 3306 in der Google Cloud Firewall für die erstellte virtuelle Maschine freigegeben werden. Sodann war es möglich, sich mit den festgelegten Benutzerdaten und der externen IP Adresse sowie dem Port gegen die Datenbank zu verbinden. Die Notation der Adresse erfolgt hierbei grundsätzlich im Format "ip,port". Sowohl das Schema als auch die Daten ließen sich nun via Insert Skript einspielen. //
+		Die Bereitstellung der Datenbank erfolgte zunächst auf einer Compute Engine Instanz. Die erstellte virtuelle Maschine wurde hierbei mit einer Debian und einer Docker Installation versehen. Da im Softwareprojekt die Datenbank mit einer MSSQL Datenbank umgesetzt wurde, sollte auch der Betrieb mit einer MSSQL Datenbank stattfinden. Um dies zu realisieren wurde das offizielle Microsoft SQL Server Docker Image vom Docker Hub instanziiert. Dies lies sich mit dem Befehl "" bewerkstelligen. Damit man sich anschließend mit der Datenbank durch ein Client Tool wie SQL Server Management Studio verbinden konnte musste noch der Port 3306 in der Google Cloud Firewall für die erstellte virtuelle Maschine freigegeben werden. Sodann war es möglich, sich mit den festgelegten Benutzerdaten und der externen IP Adresse sowie dem Port gegen die Datenbank zu verbinden. Die Notation der Adresse erfolgt hierbei grundsätzlich im Format "ip,port". Sowohl das Schema als auch die Daten ließen sich nun via Insert Skript einspielen. //
 		
 		
-		Je nach Technologie Stack kommen auch andere Datenbanken in Frage. Sofern es ein geeignetes Docker Image hierfür gibt, kann diese Datenbank ebenfalls hiermit betrieben werden. (todo: Zeitform?) Da in dem zugrunde liegenden Softwareprojekt bereits eine MSSQL Datenbank vorlag, wurde auch ebenjene für diese Ausarbeitung verwendet. Als Alternativen würden sich für das vorliegende Szenario entweder andere relationale Datenbanken anbieten. Sofern die Anwendung eine höhere Skalierbarkeit bieten soll, k
+		Je nach Technologie Stack kommen auch andere Datenbanken in Frage. Sofern es ein geeignetes Docker Image hierfür gibt, kann diese Datenbank ebenfalls hiermit betrieben werden. (todo: Zeitform?) Da in dem zugrunde liegenden Softwareprojekt bereits eine MSSQL Datenbank vorlag, wurde auch ebenjene für diese Ausarbeitung verwendet. Als Alternativen würden sich für das vorliegende Szenario entweder andere relationale Datenbanken anbieten. Sofern die Anwendung eine höhere horizontale Skalierbarkeit bieten soll, kann eine NoSQL Technologie in Betracht gezogen werden. Für das Projekt "Finanzübersicht" kommen dokumentenbasierte Datenbanken für die Buchungsdaten in Frage. Dieses könnte insbesondere Lastspitzen bei der Verwendung der Import-Funktion von Buchungsdaten relativieren. Bei relationalen Datenbanken besteht hier die Gefahr, dass bei vielen gleichzeitigen Schreibvorgängen auf dieser Tabelle viele Datenbank Locks entstehen würden. [Die Folge hiervon wäre der potenzielle Stillstand der Datenbank]. Für Session-Daten und Caching kann eine RedisDB sinnvoll sein (todo: zitat), da...(todo: Will ich diesen Absatz behalten?) Sofern weiterhin ein relationales Modell geführt werden sollte kann auch der Google Cloud Spanner eine Option sein, da .... 
+		
 		Den grundsätzlichen Betrieb einer Datenbank in einem Container gilt es jedoch zu hinterfragen. Laut Heddings ist Docker nicht für "stateful services" wie Datenbanken vorgesehen. Sämtliche Daten sind laut ihm flüchtig und werden vernichtet, sobald der Container gelöscht wird. Dieses Problem lässt sich jedoch gemäß Heddings in gewissem Maße umgehen, indem Docker Volumes für die Persistierung der Daten verwendet werden./cite(heddings-database-docker) 
 		
-		
-		
-		Die bisherige Umsetzung erfolgte auf einer MSSQL Datenbank. Diese liegt als Docker Image im Docker Hub vor.
-		MySQL oder MariaDB, weil es hierzu Docker Images gibt. Als Alternativen können sich hier auch NoSQL Datenbanken anbieten. Für das Caching
-		gleichen Anfragen und Sessions kann sich eine Redis DB anbieten, da bei jeder Anfrage, die eine gültige Session erfordert, eine Datenbankabfrage
-		vonnöten ist. Für das Speichern der Buchungsdaten lohnt sich vermutlich eine dokumentenbasierte Datenbank. Der Vorteil von dokumentenbasierten 
-		Datenbanken wäre eine zu erwartende Umgehung von DB-Locks bei den Schreibintensiven Operationen durch die Import Funktionalität. Im vorliegenden
-		Fall wurde aufgrund der Einheitlichkeit eine relationale Datenbank gewählt. 
 		
 	
 		Erkenntnis: Das ist grundsätzlich nicht vorgesehen, es gibt eine native Lösung: Das Cloud SQL. Es wurde zunächst versucht mit einer kostenlosen
 		VM bereituzustellen. Hierbei konnte nach umfangreichen Anstrengungen und Recherchen kein Ergebnis erzielt werden. Es sei an dieser Stelle jedoch
-		kritisch zu vermerken, dass die Expertise des Autors im Netzwerkbereich nicht umfangreich genug waren, um eine korrekte Lösung zu implementieren.
+		kritisch zu vermerken, dass die Expertise des Autors im Netzwerkbereich nicht umfangreich genug waren, um eine potenziell korrekte Lösung zu implementieren.
 		Bei ausreichenden Kenntnissen besteht die Möglichkeit, dass hier dennoch eine korrekte Umsetzung erfolgen kann. Google sieht vor, dass man die
 		Cloud-native SQL Lösung "Cloud SQL" verwendet.(todo: belegen, wenn das nicht geht dann sollte das irgendwie umformuliert werden oder raus.)
 		Die Verbindung eines Cloud Run Service mit einer Cloud SQL Datenbank liegt umfangreich von Google dokumentiert vor. 
 
 		\subsubsection{Netzwerkprobleme}
+		
 		\subsubsection{CloudSQL}
 		
 		\subsubsection{Alternative Möglichkeiten}
