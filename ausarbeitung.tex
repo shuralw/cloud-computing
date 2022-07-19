@@ -28,7 +28,7 @@
 
 
 
-\title{Bereitstellung einer Fullstack Anwendung auf der Google Cloud Plattform}
+\title{Kontinuierliche Bereitstellung einer Fullstack Anwendung auf der Google Cloud Plattform}
 \author{Lukas Wessel}
 \date{\today}
 
@@ -99,8 +99,8 @@ Serverless
 
 		\subsubsection{Cloud Run}
 			Venema definiert Cloud Run wie folgt: "Cloud Run is a platform on Google Cloud that lets you build scalable and reliable web-based applications. As
- 			a developer, you can get very close to being able to just write your code and push it, and then let the platform deploy, run, and scale your application for you." \cite{Venema, S.1} \\
-			Hierbei können laut Venema sehr schnell 1000 Container erzeugt werden. \cite{vgl. Venema, S. XVI}
+ 			a developer, you can get very close to being able to just write your code and push it, and then let the platform deploy, run, and scale your application for you." \cite[S.1]{Venema} \\
+			Hierbei können laut Venema sehr schnell 1000 Container erzeugt werden. \cite[vgl. S.XVI]{Venema}
 			Die Applikationen lassen sich in Netzwerken vereinen oder voneinander trennen, mit Rechten und Rollen ausstatten (IAM) und mit verschiedensten 
 			Datenbankservices wie etwa Cloud SQL oder Firestore verbinden. Für Cloud Run sind Containertechnologien wie Docker vorgesehen, um deren Images 
 			mit einer "pre-built app" \cite{cloud-run-johnson} zu "pullen" und zu instanziieren. Die Technologie lässt sich effizienter nutzen, indem sie mit "Continuous 
@@ -124,9 +124,9 @@ Serverless
 
 		\subsubsection{Docker}
 			Die Softwareumgebung vom Entwickler sollte vom Administrator replizierbar sein, damit keine Probleme aufgrund der Umgebung in Test- oder Produktivumgebungen 
-			auftreten. Docker bietet hierfür eine Lösung, es ist die allgegenwärtige Technologie \cite{vgl Venema S.40} um Software in Containern zu verpacken (containerisieren), 
+			auftreten. Docker bietet hierfür eine Lösung, es ist die allgegenwärtige Technologie \cite[vgl. S.40]{Venema} um Software in Containern zu verpacken (containerisieren), 
 			auf einer zentralen Plattform (Registry) hochzuladen (Push) und diese wiederum herunterzuladen (Pull). Es virtualisiert laut Clancy im Gegensatz zu virtuellen Maschinen
-			nicht die Hardware, sondern das Betriebssystem. \cite{vgl. docker-virtualization} Es erlaubt einen höheren Nutzungsgrad einer (virtuellen) Maschine, da mehrere 
+			nicht die Hardware, sondern das Betriebssystem. \cite[vgl.]{docker-virtualization} Es erlaubt einen höheren Nutzungsgrad einer (virtuellen) Maschine, da mehrere 
 			kleine Container-Instanzen hierauf gleichzeitig betrieben werden können.
 
 		\subsubsection{Cloud Build}
