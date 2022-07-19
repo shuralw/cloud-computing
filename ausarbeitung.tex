@@ -130,7 +130,11 @@ Serverless
 			kleine Container-Instanzen hierauf gleichzeitig betrieben werden können.
 
 		\subsubsection{Cloud Build}
-		\subsubsection{Cloud }
+ Grundsätzlich werden Docker Images vom Entwickler (todo Beleg) erzeugt. Diese können dann einem Administrator zur Verfügung gestellt werden, der diese dann auf einem Server publiziert. 
+Dieses Verfahren kann jedoch durch eine simplere Vorgehensweise ersetzt werden. Cloud Build ersetzt den Schritt der Image Erzeugung insoweit, alsdass man diesen Service mit einem Code Repository und eine Konfigurationsdatei wie beispielsweise ein Dockerfile verknüpft.
+Sodann ist es möglich mittels eines Kommandos eine neue Version basierend auf dem aktuellen Code-Stand zu kompilieren. Das Erzeugnis kann anschließend auf einer Registry wie beispielsweise der Artifact Registry oder der Container Registry von Google gepusht werden. 
+
+\subsubsection{Cloud }
 		\subsubsection{GitHub Actions}
 		\subsubsection{Continuous Integration}
 		\subsubsection{Continuous Deployment}
