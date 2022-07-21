@@ -85,8 +85,9 @@ Serverless
 
 
 \section{Stand der Technik}
-	
+
 	\subsection{Verfügbare Technologien} 
+	(todo: Ich brauche auch 3.2)
 	(todo: Soll ich die Kapitelüberschrift streichen? Ist das doppelt mit Stand der Technik? Ich find das ist irgendwie doppelt.)
 
 	In diesem Kapitel werden die in Frage kommenden Technologien und Konzepte hinsichtlich des Betriebs, der Bereitstellung der Images und des
@@ -95,46 +96,50 @@ Serverless
 		\subsubsection{Cloud SQL}		
 			Cloud SQL ist ein Service zum Bereitstellen von Datenbanken, die von Google in dessen Cloud Plattform bereitgestellt wird. Als Anwender kann hier eine
 			PostGreSQL, MySQL oder eine MSSQL Datenbank instanziiert werden. Hierbei werden laut Ożarowska die Daten "stored and processed in the cloud, on the infrastructure of a cloud 
-			service provider". \cite{cloudsql}
+			service provider". \cite{ożarowska_2020}
 
 		\subsubsection{Cloud Run}
 			Venema definiert Cloud Run wie folgt: "Cloud Run is a platform on Google Cloud that lets you build scalable and reliable web-based applications. As
- 			a developer, you can get very close to being able to just write your code and push it, and then let the platform deploy, run, and scale your application for you." \cite[S.1]{Venema} \\
-			Hierbei können laut Venema sehr schnell 1000 Container erzeugt werden. \cite[vgl.][S.XVI]{Venema}
+ 			a developer, you can get very close to being able to just write your code and push it, and then let the platform deploy, run, and scale your application for you." \cite[S.1]{Venema_2021} \\
+			Hierbei können laut Venema sehr schnell 1000 Container erzeugt werden. \cite[vgl.][S.XVI]{Venema_2021}
 			Die Applikationen lassen sich in Netzwerken vereinen oder voneinander trennen, mit Rechten und Rollen ausstatten (IAM) und mit verschiedensten 
 			Datenbankservices wie etwa Cloud SQL oder Firestore verbinden. Für Cloud Run sind Containertechnologien wie Docker vorgesehen, um deren Images, 
-			welche eine "pre-built app" \cite{cloud-run-johnson} beinhalten, zu "pullen" und zu instanziieren. Die Technologie lässt sich effizienter nutzen, indem sie mit "Continuous 
-			Deployment" kombiniert wird (siehe Kapitel 3.1.10), da hierdurch der administrative Aufwand von zukünftigen Bereitstellungen reduziert wird \cite{whats-cd-lamm}.
+			welche eine "pre-built app" \cite{johnson_2020} beinhalten, zu "pullen" und zu instanziieren. Die Technologie lässt sich effizienter nutzen, indem sie mit "Continuous 
+			Deployment" kombiniert wird (siehe Kapitel 3.1.10), da hierdurch der administrative Aufwand von zukünftigen Bereitstellungen reduziert wird \cite{lamm_2021}.
 
 		\subsubsection{Virtuelle Maschinen}
 			Lackes und Siepermann definieren im "Gabler Wirtschaftslexikon" eine virtuelle Maschine wie folgt: "Bei Mehrbenutzerbetrieb, v.a. bei Teilnehmerbetrieb, wird durch
 			das Betriebssystem für jeden einzelnen Teilnehmer eine eigene Hardware-Umgebung simuliert, eine „virtuelle Maschine”. Diese enthält z.B. einen eigenen Arbeitsspeicher, 
 			Magnetplattenspeicher und Drucker, individuell für den Teilnehmer. Prinzipiell kann jede virtuelle Maschine mit einem anderen Betriebssystem betrieben
 			werden. Die interne Realisierung der virtuellen Maschine durch das Betriebssystem erfolgt natürlich auf den realen Geräten; z.B. wird der virtuelle Drucker
-			eines Teilnehmers auf einem realen Drucker der Datenverarbeitungsanlage abgebildet." \cite{gabler-vm} \\
+			eines Teilnehmers auf einem realen Drucker der Datenverarbeitungsanlage abgebildet." \cite{lackes_siepermann_2018} \\
 			Im Kontext einer Cloud spielen diese eine wichtige Rolle, da sie Mandantentrennung unter möglichst effizienter Nutzung der Hardwareressourcen
 			des Rechenzentrums gewährleisten können.
 		
 		\subsubsection{Compute Engine}
-			Virtuelle Maschinen werden mit der Compute Engine erzeugt. Hierbei entsteht ein großer administrativer Aufwand, da die Installation von Updates und 
-			Installationen wie Docker oder Datenbanktechnologien durch den Kunden vorgenommen werden. 
-			Auf der anderen Hand liegt eine hohe Kontrolle des Servers vor, da viele Einstellungen des Servers vom Kunden vorgenommen werden können. Er genießt somit
-			große Freiheit in der Wahl seiner Software und Einstellungen, ist jedoch auch verantwortlich für die Pflege hierfür.
+			Virtuelle Maschinen werden auf der Google Cloud Plattform mit der Compute Engine erzeugt. Hierbei entsteht ein großer administrativer Aufwand, 
+			da die Installation von Updates und Installationen wie Docker oder Datenbanktechnologien durch den Kunden vorgenommen werden. 
+			Auf der anderen Hand liegt eine hohe Kontrolle des Servers vor, da viele Einstellungen des Servers vom Kunden vorgenommen werden können. Der Kunde
+			genießt somit große Freiheit in der Wahl seiner Software und Einstellungen, ist jedoch auch verantwortlich für die Pflege hierfür.
 	
-
 		\subsubsection{Docker}
 			Die Softwareumgebung vom Entwickler sollte vom Administrator replizierbar sein, damit keine Probleme aufgrund der Umgebung in Test- oder Produktivumgebungen 
-			auftreten. Docker bietet hierfür eine Lösung, es ist die allgegenwärtige Technologie \cite[vgl. S.40]{Venema} um Software in Containern zu verpacken (containerisieren), 
+			auftreten. Docker bietet hierfür eine Lösung, es ist die allgegenwärtige Technologie \cite[vgl.][S.40]{Venema_2021} um Software in Containern zu verpacken (containerisieren), 
 			auf einer zentralen Plattform (Registry) hochzuladen (Push) und diese wiederum herunterzuladen (Pull). Es virtualisiert laut Clancy im Gegensatz zu virtuellen Maschinen
-			nicht die Hardware, sondern das Betriebssystem. \cite[vgl.]{docker-virtualization} Es erlaubt einen höheren Nutzungsgrad einer (virtuellen) Maschine, da mehrere 
+			nicht die Hardware, sondern das Betriebssystem. \cite[vgl.][]{clancy_2021} Es erlaubt einen höheren Nutzungsgrad einer (virtuellen) Maschine, da mehrere 
 			kleine Container-Instanzen hierauf gleichzeitig betrieben werden können.
 
 		\subsubsection{Cloud Build}
- Grundsätzlich werden Docker Images vom Entwickler (todo Beleg) erzeugt. Diese können dann einem Administrator zur Verfügung gestellt werden, der diese dann auf einem Server publiziert. 
-Dieses Verfahren kann jedoch durch eine simplere Vorgehensweise ersetzt werden. Cloud Build ersetzt den Schritt der Image Erzeugung insoweit, alsdass man diesen Service mit einem Code Repository und eine Konfigurationsdatei wie beispielsweise ein Dockerfile verknüpft.
-Sodann ist es möglich mittels eines Kommandos eine neue Version basierend auf dem aktuellen Code-Stand zu kompilieren. Das Erzeugnis kann anschließend auf einer Registry wie beispielsweise der Artifact Registry oder der Container Registry von Google gepusht werden. 
+			Grundsätzlich werden Docker Images vom Entwickler (todo Beleg) erzeugt. Diese können dann einem Administrator zur Verfügung gestellt werden, der 
+			diese dann auf einem Server publiziert. Dieses Verfahren kann jedoch durch eine simplere Vorgehensweise ersetzt werden. Cloud Build ersetzt den Schritt der Image 
+			Erzeugung insoweit, alsdass man diesen Service mit einem Code Repository und eine Konfigurationsdatei wie beispielsweise ein Dockerfile verknüpft. 
+			Sodann ist es möglich mittels eines Kommandos eine neue Version basierend auf dem aktuellen Code-Stand zu kompilieren. Das Erzeugnis kann 
+			anschließend auf einer Registry wie beispielsweise der Artifact Registry oder der Container Registry von Google gepusht werden. 
 
-\subsubsection{Cloud }
+		\subsubsection{Artifact Registry}
+			Die Artifact Registry (AR) von Google ist ein Ablageort für Container Images und weitere "Build-Artefakte". Diese löst die hierfür zuvor vorgesehene Container Registry ab.
+			Artefakte können Docker Images oder PaketeBuild-Abhängigkeiten sein. \cite[vgl.][]{martinez_2020} 
+			
 		\subsubsection{GitHub Actions}
 		\subsubsection{Continuous Integration}
 		\subsubsection{Continuous Deployment}
@@ -212,7 +217,7 @@ Sodann ist es möglich mittels eines Kommandos eine neue Version basierend auf d
 	Es wurde während des Lesens der Dokumentation erkannt, dass es eine aktuellere Technologie gibt, die Google für Docker Registries vorsieht.
 	Obgleich der Name "Google Container Registry" suggeriert, dass dieser Dienst für das Ablegen von Images verwendet werden sollte, empfiehlt die Google
 	Dokumentation die Verwendung der aktuelleren "Artifact Registry". Martinez formuliert diesbezüglich: "[The Google Cloud Platform Artifact 
-	Registry] will [..] replace our current	[Google Cloud Registry] in the future [...]" \cite{artifactRegistryReplacesGCP} 
+	Registry] will [..] replace our current [Google Cloud Registry] in the future [...]" \cite{martinez_2020} 
 	(todo: Sollte ich die Artifact Registry auch noch in den Werkzeugen ausformulieren? Ja oder?)
 
 	Grundsätzlich kamen zunächst  
@@ -232,14 +237,14 @@ Sodann ist es möglich mittels eines Kommandos eine neue Version basierend auf d
 		
 		Je nach Technologie Stack kommen auch andere Datenbanken in Frage. Sofern es ein geeignetes Docker Image hierfür gibt, kann diese Datenbank ebenfalls hiermit betrieben werden. (todo: Zeitform?) Da in dem zugrunde liegenden Softwareprojekt bereits eine MSSQL Datenbank vorlag, wurde auch ebenjene für diese Ausarbeitung verwendet. Als Alternativen würden sich für das vorliegende Szenario entweder andere relationale Datenbanken anbieten. Sofern die Anwendung eine höhere horizontale Skalierbarkeit bieten soll, kann eine NoSQL Technologie in Betracht gezogen werden. Für das Projekt "Finanzübersicht" kommen dokumentenbasierte Datenbanken für die Buchungsdaten in Frage. Dieses könnte insbesondere Lastspitzen bei der Verwendung der Import-Funktion von Buchungsdaten relativieren. Bei relationalen Datenbanken besteht hier die Gefahr, dass bei vielen gleichzeitigen Schreibvorgängen auf dieser Tabelle viele Datenbank Locks entstehen würden. [Die Folge hiervon wäre der potenzielle Stillstand der Datenbank]. Für Session-Daten und Caching kann eine RedisDB sinnvoll sein (todo: zitat), da...(todo: Will ich diesen Absatz behalten?) Sofern weiterhin ein relationales Modell geführt werden sollte kann auch der Google Cloud Spanner eine Option sein, da .... 
 		
-		Den grundsätzlichen Betrieb einer Datenbank in einem Container gilt es jedoch zu hinterfragen. Laut Heddings ist Docker nicht für "stateful services" wie Datenbanken vorgesehen. Sämtliche Daten sind laut ihm flüchtig und werden vernichtet, sobald der Container gelöscht wird. Dieses Problem lässt sich jedoch gemäß Heddings in gewissem Maße umgehen, indem Docker Volumes für die Persistierung der Daten verwendet werden./cite(heddings-database-docker) 
+		Den grundsätzlichen Betrieb einer Datenbank in einem Container gilt es jedoch zu hinterfragen. Laut Heddings ist Docker nicht für "stateful services"\cite[vgl.][]{heddings_2020} wie Datenbanken vorgesehen. Sämtliche Daten sind laut ihm flüchtig und werden vernichtet, sobald der Container gelöscht wird. Dieses Problem lässt sich jedoch gemäß Heddings in gewissem Maße umgehen, indem Docker Volumes für die Persistierung der Daten verwendet werden.\cite[vgl.][]{heddings_2020}
 		
 		
 	
 		Erkenntnis: Das ist grundsätzlich nicht vorgesehen, es gibt eine native Lösung: Das Cloud SQL. Es wurde zunächst versucht mit einer kostenlosen
 		VM bereituzustellen. Hierbei konnte nach umfangreichen Anstrengungen und Recherchen kein Ergebnis erzielt werden. Es sei an dieser Stelle jedoch
-		kritisch zu vermerken, dass die Expertise des Autors im Netzwerkbereich nicht umfangreich genug waren, um eine potenziell korrekte Lösung zu implementieren.
-		Bei ausreichenden Kenntnissen besteht die Möglichkeit, dass hier dennoch eine korrekte Umsetzung erfolgen kann. Google sieht vor, dass man die
+		kritisch zu vermerken, dass die Expertise des Autors im Netzwerkbereich nicht umfangreich genug war, um eine potenziell korrekte Lösung zu implementieren.
+		Bei ausreichenden Kenntnissen besteht die Möglichkeit, dass hier dennoch eine adäquate Umsetzung erfolgen kann. Google sieht vor, dass man die
 		Cloud-native SQL Lösung "Cloud SQL" verwendet.(todo: belegen, wenn das nicht geht dann sollte das irgendwie umformuliert werden oder raus.)
 		Die Verbindung eines Cloud Run Service mit einer Cloud SQL Datenbank liegt umfangreich von Google dokumentiert vor. 
 
