@@ -12,6 +12,8 @@
   \usepackage[T1]{fontenc}
 \fi
 
+\usepackage{cite}
+
 % Für kompakter Aufzählungen
 \usepackage{paralist}
 
@@ -106,6 +108,8 @@ Serverless
 			Datenbankservices wie etwa Cloud SQL oder Firestore verbinden. Für Cloud Run sind Containertechnologien wie Docker vorgesehen, um deren Images, 
 			welche eine "pre-built app" \cite{johnson_2020} beinhalten, zu "pullen" und zu instanziieren. Die Technologie lässt sich effizienter nutzen, indem sie mit "Continuous 
 			Deployment" kombiniert wird (siehe Kapitel 3.1.10), da hierdurch der administrative Aufwand von zukünftigen Bereitstellungen reduziert wird \cite{lamm_2021}.
+			(todo: längerer Abschnitt)
+			(todo: KNative miteinbringen)
 
 		\subsubsection{Virtuelle Maschinen}
 			Lackes und Siepermann definieren im "Gabler Wirtschaftslexikon" eine virtuelle Maschine wie folgt: "Bei Mehrbenutzerbetrieb, v.a. bei Teilnehmerbetrieb, wird durch
@@ -136,14 +140,31 @@ Serverless
 			Sodann ist es möglich mittels eines Kommandos eine neue Version basierend auf dem aktuellen Code-Stand zu kompilieren. Das Erzeugnis kann 
 			anschließend auf einer Registry wie beispielsweise der Artifact Registry oder der Container Registry von Google gepusht werden. 
 
+		\subsubsection{GitHub Actions}
+			Es besteht die Möglichkeit anstelle von Google Cloud Build auch GitHub Actions zu verwenden. Hiermit können Images ebenfalls in der Cloud gebaut werden. 
+			Sofern man sich für diese Lösung entscheidet vermeidet man für diese Technologie einen "Vendor Lock-In", was eine Abhängigkeit von einem Anbieter beschreibt.
+
 		\subsubsection{Artifact Registry}
 			Die Artifact Registry (AR) von Google ist ein Ablageort für Container Images und weitere "Build-Artefakte". Diese löst die hierfür zuvor vorgesehene Container Registry ab.
 			Artefakte können Docker Images oder PaketeBuild-Abhängigkeiten sein. \cite[vgl.][]{martinez_2020} 
-			
-		\subsubsection{GitHub Actions}
-		\subsubsection{Continuous Integration}
-		\subsubsection{Continuous Deployment}
 
+		\subsubsection{Docker Registry}
+			Die Docker Registry ist eine Container Image Registry vom Unternehmen Docker. Wie auch die GitHub Actions vermeidet man durch die Verwendung der Docker Registry 
+			einen Vendor Lock-In, da sie eine Alternative zur Artifact Registry darstellt.
+			
+		\subsubsection{Continuous Integration}
+			Continuous Integration bezeichnet ein Prinzip, bei dem Quellcode kontinuierlich in eine Codebasis integriert wird. Hierbei gilt laut Meyer eine
+			"tägliche" Basis als kontinuierlich.\cite[vgl.][]{Meyer_2014}
+			Eine Integrierung von Code gilt als Zusammenführung von Entwickler-spezifischen Codeänderungen in einen kollaborativen Codestand, was für 
+			gewöhnlich als main- , beziehungsweise master-Branch bezeichnet wird. Darüber hinaus umfasst die kontinuierliche Integration von Code auch 
+			einen möglichst konstant lauffähigen Build laut Meyer.\cite[vgl.][]{Meyer_2014} Dieser sollte nach jeder Zusammenführung von Code stattfinden
+			und erfolgreich sein.
+
+		\subsubsection{Continuous Deployment}
+			Continuous Deployment liegt vor, wenn die Integration von Code ein Deployment hervorruft. Exakt wie bei Continuous Integration sollten diese Deployments
+			häufig und in kurzen Abständen stattfinden. Es beschreibt laut Quibeldey-Cirkel und Thelen "solche Mikro-Release-Zyklen, bei denen jede geänderte
+			Programmzeile zur Auslieferung einer neuen, vollständigen und qualitätsgesicherten Version [führt]."
+			
 \section{Methodik}
 	Sollte ich hier lieber eine Aufzählung machen oder eigene Kapitel vorsehen? Wie ausführlich sollte das sein, ich will mich nicht wiederholen. 
 	Bei der Umsetzung der praktischen Ausarbeitung wird einer strukturierten Vorgehensweise gefolgt, um das Ergebnis möglichst zeiteffizient zu 
@@ -160,7 +181,8 @@ Serverless
 
 	\subsection{Erzeugen und lokales Ausführen der Docker Images}
 	Es soll verifiziert werden, dass die Docker-Images der Datenbank, des Backends und des Frontend grundsätzlich lauffähig sind. Aus diesem Grund wird 
-	vorab ein Docker-Image mittels des "Docker Build" (todo: konkreter Befehl?) lokal erzeugt.
+	vorab ein Docker-Image mittels des "Docker Build" (todo: konkreter Befehl?) lokal erzeugt. Eine mögliche lokale Ausführung einer serverlosen Anwendung
+	ist laut Lasczczak "critical for efficiant development".
 
 	\subsection{Relevante Artikel der Dokumentation lesen}
 	Um zu erlernen, welche Google Services sich grundsätzlich für den Zweck eignen und wie diese miteinander verkettet werden können soll die Google
@@ -191,8 +213,9 @@ Serverless
 
 \section{Umsetzung}
 	Um abschätzen zu können, welche Technologien für ein Deployment in der Google Cloud in Frage kommen wurde die Dokumentation von Google herangezogen.
-	Es wurde erkannt, dass derzeit die "Cloud Run" API eine für den Zweck passende Alternative darstellt. Begründen lässt sich dies darin, dass es einerseits 
-	eine aktuelle Cloud-Technologie ist und andererseits von Google und mehreren Autoren in aktuellen Lektüren für diesen Anwendungszweck vorgesehen wird.(todo ZITATE)
+	Es wurde erkannt, dass derzeit die "Cloud Run" API eine für den Betrieb einer webbasierten Fullstack Anwendung passende Alternative darstellt. Begründen lässt sich dies darin,
+	dass es einerseits eine aktuelle Cloud-Technologie ist und andererseits durch dessen serverlosen Ausprägung von Google und mehreren Autoren in aktuellen Lektüren
+	für diesen Anwendungszweck	vorgesehen wird. \cites[vgl.][]{daly_2022}{laszczak_2020}
 	Darüber hinaus existiert ein begrenztes Gratis Kontingent an Ressourcen für diesen Service. So sind beispielsweise die ersten 180.000 vCPU Sekunden 
 	im Monat kostenfrei. (https://cloud.google.com/run/pricing)
 	Weiterhin (Fachwort möglich lol) eignet sich grundsätzlich auch die Compute Engine für den Betrieb der Applikationen, da hierdurch virtuelle Maschinen
@@ -256,6 +279,10 @@ Serverless
 	\subsection{Frontend} (ggf. zusammen mit Backend?)
 
 	(\subsection{Aufgetretene Probleme}) vermutlich eher beiläufig
+
+Falls ich ne kritische Betrachtung mache: Großes Problem ist der Vendor Lock-In
+
+
 
 \section{Evaluation und Ergebnisse}
 	Stärken und Schwächen herausstellen
